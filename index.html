@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Hiragana GA-row</title>
+  <style>
+    body {
+      font-family: "Hiragino Kaku Gothic Pro", "Meiryo", sans-serif;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 40px auto;
+      font-size: 2.5rem;
+      text-align: center;
+      background-color: #fff8dc;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    td:hover {
+      background-color: #ffee58;
+    }
+    p {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: 20px;
+    }
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>ga</th>
+        <th>gi</th>
+        <th>gu</th>
+        <th>ge</th>
+        <th>go</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-sound="ga">が</td>
+        <td data-sound="gi">ぎ</td>
+        <td data-sound="gu">ぐ</td>
+        <td data-sound="ge">げ</td>
+        <td data-sound="go">ご</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Audio files -->
+  <audio id="ga" src="https://raw.githubusercontent.com/Kuuuube/kana-quiz-sounds/master/audio/0/ga.mp3"></audio>
+  <audio id="gi" src="https://raw.githubusercontent.com/Kuuuube/kana-quiz-sounds/master/audio/0/gi.mp3"></audio>
+  <audio id="gu" src="https://raw.githubusercontent.com/Kuuuube/kana-quiz-sounds/master/audio/0/gu.mp3"></audio>
+  <audio id="ge" src="https://raw.githubusercontent.com/Kuuuube/kana-quiz-sounds/master/audio/0/ge.mp3"></audio>
+  <audio id="go" src="https://raw.githubusercontent.com/Kuuuube/kana-quiz-sounds/master/audio/0/go.mp3"></audio>
+
+  <script>
+    document.querySelectorAll('td[data-sound]').forEach(cell => {
+      cell.addEventListener('click', () => {
+        const soundId = cell.getAttribute('data-sound');
+        const audio = document.getElementById(soundId);
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
